@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DoorToNextLevel : MonoBehaviour
 {
     public LevelLoader levelLoader;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         levelLoader.LoadNextLevel();
     }

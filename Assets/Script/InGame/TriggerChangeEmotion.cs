@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TriggerChangeEmotion : MonoBehaviour
 {
+    public float value;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (DataStorage.emotion_state + 0.1f <= 1)
+        if (collision.tag == "Player" && DataStorage.emotion_state + value <= 1 && DataStorage.is_side_view)
         {
-            DataStorage.emotion_state += 0.1f;
+            DataStorage.emotion_state += value;
         }
     }
 }

@@ -10,12 +10,34 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        Debug.Log("Next");
-        if (SceneManager.GetActiveScene().buildIndex + 1 >= 6)
+        if (SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.GetAllScenes().Length)
         {
             StartCoroutine(LoadLevel(0));
         }
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    public void LoadPrevLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex - 1 <= 0)
+        {
+            return;
+        }
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
+    }
+
+    public void LoadLevelByIndex(int index)
+    {
+        if (index >= 6)
+        {
+            return;
+        }
+        StartCoroutine(LoadLevel(index));
+    }
+
+    public void ReloadCurrentLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
 
     IEnumerator LoadLevel(int levelIndex)
