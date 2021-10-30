@@ -11,7 +11,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextLevel()
     {
         Debug.Log("Next");
-        if (SceneManager.GetActiveScene().buildIndex + 1 >= 2)
+        if (SceneManager.GetActiveScene().buildIndex + 1 >= 6)
         {
             StartCoroutine(LoadLevel(0));
         }

@@ -50,6 +50,7 @@ namespace InGame
             if (Input.GetKeyDown(KeyCode.W))
             {
                 //pause_menu.SetActive(!pause_menu.activeSelf);
+                SideViewPlayer.GetComponent<Animator>().SetBool("Jump", true);
             }
             else if (Input.GetKeyDown(KeyCode.S))
             {
